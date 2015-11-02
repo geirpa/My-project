@@ -1,22 +1,11 @@
-#include <iostream>
 #include <new>
 
-void computeMandelbrotSet(int M, int N, char *data);
-
-int main(int argc, char *argv[])
+void mandelbrotSet(int M, int N, char *data)
 {
-    int M = 500, N = 500;
-    char *data = new char[M*N];
+    int j, k;
 
-    computeMandelbrotSet(M, N, data);
-
-    delete data;
-    return 0;
-}
-        
-void computeMandelbrotSet(int M, int N, char *data)
-{
-    int j, k, val;
+    //allocate data
+    data = new char[M*N];
 
     //variables in the for loop
     double c_re, c_im, x, y, xtemp;
@@ -40,9 +29,9 @@ void computeMandelbrotSet(int M, int N, char *data)
                 y = 2*x*y + c_im;
                 x = xtemp;
 
-                iter += 1;
+                iter++;
             }
             data[j*N + k] = iter;
         }
     }
-}	
+}
