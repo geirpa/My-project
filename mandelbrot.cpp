@@ -1,11 +1,13 @@
 #include <new>
+#include "mandelbrot.hpp"
 
-void mandelbrotSet(int M, int N, char *data)
+void mandelbrotSet(int M, int N, int **data)
 {
-    int j, k;
+    int j, k, *cPtr;
 
     //allocate data
-    data = new char[M*N];
+    *data = new int[M*N];
+    iPtr = *data;
 
     //variables in the for loop
     double c_re, c_im, x, y, xtemp;
@@ -31,7 +33,7 @@ void mandelbrotSet(int M, int N, char *data)
 
                 iter++;
             }
-            data[j*N + k] = iter;
+            iPtr[j*N + k] = iter;
         }
     }
 }
